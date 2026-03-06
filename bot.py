@@ -19,6 +19,7 @@ load_dotenv()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 MY_GUILD = discord.Object(id=1477707527549485118)
 DAD_ID = 1259348548722495608
 ADMIN_IDS = (DAD_ID, 1263681901244448838)
@@ -32,6 +33,7 @@ client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 start_time = time.time()
 rigged_ship = {}
+ai_cooldowns = {}
 
 # ── Message tracking (file-backed) ──────────────────
 TRACKER_FILE = "message_tracker.json"
@@ -354,7 +356,8 @@ async def help_cmd(interaction: discord.Interaction):
         "`/tell` — Send a DM (shows your name)\n"
         "`/privatetell` — Send an anonymous DM\n"
         "`/check` — Look up user info\n"
-        "`/idea` — Submit feedback or report a bug"
+        "`/idea` — Submit feedback or report a bug\n"
+            "`/ai` — Ask AI anything 🤖"
     ), inline=False)
     embed.add_field(name="🏓 Other", value=(
         "`/ping` — Check bot latency\n"
@@ -516,6 +519,50 @@ async def rate(interaction: discord.Interaction, thing: str = None, user: discor
     else:
         bars = "█" * score + "░" * (10 - score)
     await interaction.response.send_message(f"⭐ I rate {target} a **{score:,}/10**\n{bars}")
+
+# ════════════════════════════════════════════════════
+#  /ai
+# ════════════════════════════════════════════════════
+
+@app_commands.check(block_check)
+@tree.command(name="ai", description="Ask AI anything")
+@app_commands.allowed_installs(guilds=True, users=True)
+@app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
+@app_commands.describe(question="Your question")
+async def ai(interaction: discord.Interaction, question: str):
+    if not GEMINI_API_KEY:
+        await interaction.response.send_message("AI is not configured.", ephemeral=True)
+        return
+    now = time.time()
+    uid = interaction.user.id
+    if uid not in ai_cooldowns:
+        ai_cooldowns[uid] = []
+    ai_cooldowns[uid] = [t for t in ai_cooldowns[uid] if now - t < 60]
+    if len(ai_cooldowns[uid]) >= 2 and uid not in ADMIN_IDS:
+        await interaction.response.send_message("⏳ You can only ask 2 questions per minute. Please wait.", ephemeral=True)
+        return
+    ai_cooldowns[uid].append(now)
+    await interaction.response.defer()
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+        payload = {
+            "system_instruction": {"parts": [{"text": "You are Krisk, a friendly furry Discord bot. Never ask follow-up questions. Never ask the user to provide more details or context. Give your best answer in one response. Be helpful, casual, and concise."}]},
+            "contents": [{"parts": [{"text": question}]}],
+            "generationConfig": {"maxOutputTokens": 1000}
+        }
+        async with aiohttp.ClientSession() as session:
+            async with session.post(url, json=payload) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    answer = data["candidates"][0]["content"]["parts"][0]["text"]
+                    if len(answer) > 2000:
+                        answer = answer[:2000]
+                    await interaction.followup.send(answer)
+                else:
+                    await interaction.followup.send("AI request failed. Try again later.")
+    except Exception:
+        await interaction.followup.send("Something went wrong. Try again later.")
+
 # ════════════════════════════════════════════════════
 #  /ship
 # ════════════════════════════════════════════════════

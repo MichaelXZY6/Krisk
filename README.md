@@ -1,13 +1,15 @@
 # 🤖 Krisk — A Multi-Purpose Discord Bot
 
-Krisk is a feature-rich Discord bot built with Python and discord.py. It offers fun commands, utility tools, messaging features, moderation tools, and more.
+Krisk is a verified, feature-rich Discord bot built with Python and discord.py. It offers fun commands, AI chat, utility tools, messaging features, moderation tools, and more.
 
 [![Discord](https://img.shields.io/badge/Add%20to%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1390048921534861352)
+[![Verified](https://img.shields.io/badge/Discord-Verified%20Bot-5865F2?style=for-the-badge&logo=discord&logoColor=white)]()
 
 ---
 
 ## ✨ Features
 
+- 🤖 **AI Chat** — Ask AI anything, powered by Google Gemini
 - 🎭 **Fun Commands** — Memes, roasts, dice rolls, 8-ball, ratings, and ship calculator
 - 🛠️ **Utility Tools** — Weather, reminders, translation (Google Translate), and user lookup
 - 📨 **Messaging** — Send DMs through the bot, with anonymous messaging and reply forwarding
@@ -19,6 +21,14 @@ Krisk is a feature-rich Discord bot built with Python and discord.py. It offers 
 ---
 
 ## 📖 Commands
+
+### 🤖 AI
+
+| Command | Description |
+|---------|-------------|
+| `/ai [question]` | Ask AI anything (requires User Install) |
+
+> Note: `/ai` is only available to users who have added Krisk to their personal account. It can be used anywhere — servers, DMs, and group chats.
 
 ### 🎭 Fun
 
@@ -86,6 +96,18 @@ Krisk has a built-in messaging system that allows users to communicate through t
 - **Reply Forwarding** — When someone replies to a bot-forwarded message, the reply is automatically forwarded back to the original sender.
 - **Image Support** — All messaging commands support image attachments.
 - **Message Logging** — All messages sent through the bot are logged with timestamps and user IDs for moderation.
+- **Persistent Tracking** — Message tracking data is saved to disk, so reply forwarding works even after bot restarts.
+
+---
+
+## 🤖 AI Integration
+
+Krisk uses **Google Gemini 2.5 Flash** for AI features:
+
+- `/ai` command for asking questions anywhere
+- Smart, concise responses with no follow-up questions
+- Rate limited to 2 questions per minute per user
+- Only available to users who install Krisk to their personal account
 
 ---
 
@@ -95,6 +117,7 @@ Krisk has a built-in messaging system that allows users to communicate through t
 
 - Python 3.10 or higher
 - A Discord bot token ([Discord Developer Portal](https://discord.com/developers/applications))
+- A Google Gemini API key ([Google AI Studio](https://aistudio.google.com/apikey))
 - (Optional) OpenWeatherMap API key for `/weather` ([Get one here](https://openweathermap.org/api))
 
 ### Setup
@@ -129,11 +152,12 @@ Copy the example file and fill in your values:
 cp .env.example .env
 ```
 
-Edit `.env` with your bot token:
+Edit `.env` with your tokens:
 
 ```
 DISCORD_TOKEN=your_bot_token_here
 WEATHER_API_KEY=your_openweathermap_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 5. **Configure the bot**
@@ -163,7 +187,7 @@ python bot.py
 You should see:
 
 ```
-✅ Bot is online! Logged in as Krisk#3425 (ID: 1390048921534861352)
+✅ Bot is online! Logged in as Krisk (ID: xxxxxxxxxxxx)
 ✅ Slash commands synced (guild + global)!
 ```
 
@@ -192,13 +216,8 @@ Krisk/
 - Message logs are stored locally and only accessible by bot administrators
 - Anonymous messages are logged with sender info for moderation purposes
 - Blocked users cannot use any bot commands or DM the bot
-- See [Privacy Policy](https://docs.google.com/document/d/YOUR_PRIVACY_POLICY_ID) for full details
-
----
-
-## 📝 Terms of Service
-
-By using Krisk, you agree to our [Terms of Service](https://docs.google.com/document/d/YOUR_TOS_ID).
+- AI requests are processed through Google's Gemini API
+- No message content is stored by Google (free tier)
 
 ---
 
@@ -220,6 +239,7 @@ Made with love by **Michael**
 
 Built with:
 - [discord.py](https://github.com/Rapptz/discord.py)
+- [Google Gemini API](https://ai.google.dev/)
 - [deep-translator](https://github.com/nidhaloff/deep-translator)
 - [OpenWeatherMap API](https://openweathermap.org/)
 - [Meme API](https://github.com/D3vd/Meme_Api)
