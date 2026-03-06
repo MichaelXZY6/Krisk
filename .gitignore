@@ -1,0 +1,8 @@
+.env
+venv/
+__pycache__/
+message_log.json
+message_tracker.json
+feedback_tracker.json
+blocked_users.json
+.DS_Store
