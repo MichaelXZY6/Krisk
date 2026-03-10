@@ -1,0 +1,157 @@
+{
+  "1259348548722495608": {
+    "balance": 271492,
+    "streak": 2,
+    "last_daily": "2026-03-09T13:07:51.785635+00:00",
+    "last_work": "2026-03-09T14:29:51.330021+00:00",
+    "gamble_date": "2026-03-09",
+    "gamble_count": 1,
+    "inventory": {
+      "global": {
+        "rob_insurance": 97,
+        "gamble_pass_stored": 0,
+        "gamble_pass": 0,
+        "mystery_box_date": "2026-03-09",
+        "streak_saver_stored": 4,
+        "double_work_stored": 0,
+        "double_work_until": "2026-03-09T02:34:07.863553+00:00",
+        "fishing_rod": true,
+        "rob_insurance_stored": 2,
+        "anti_rob_stored": 1
+      }
+    },
+    "last_fish": "2026-03-10T00:18:59.738446+00:00"
+  },
+  "1065431492416778332": {
+    "balance": 5870,
+    "streak": 2,
+    "last_daily": null,
+    "last_work": "2026-03-09T23:31:28.454878+00:00",
+    "gamble_date": "2026-03-07",
+    "gamble_count": 10
+  },
+  "967069696786591815": {
+    "balance": 9795,
+    "streak": 2,
+    "last_daily": null,
+    "last_work": "2026-03-07T19:28:22.303711+00:00",
+    "gamble_date": "2026-03-08",
+    "gamble_count": 6,
+    "inventory": {
+      "global": {
+        "mystery_box_date": null,
+        "fishing_rod": true,
+        "gamble_pass": 0
+      }
+    },
+    "last_fish": "2026-03-08T02:54:10.757254+00:00"
+  },
+  "1055807224326397992": {
+    "balance": 875,
+    "streak": 2,
+    "last_daily": "2026-03-09T19:59:47.209251+00:00",
+    "last_work": "2026-03-09T19:59:57.943717+00:00",
+    "gamble_date": "2026-03-08",
+    "gamble_count": 12,
+    "inventory": {
+      "global": {
+        "double_work_stored": 1,
+        "mystery_box_date": "2026-03-09"
+      }
+    }
+  },
+  "1329879233258065940": {
+    "balance": 2048,
+    "streak": 1,
+    "last_daily": null,
+    "last_work": "2026-03-07T18:45:16.279099+00:00"
+  },
+  "1263681901244448838": {
+    "balance": 110947,
+    "streak": 1,
+    "last_daily": "2026-03-08T14:36:40.433956+00:00",
+    "last_work": "2026-03-08T14:37:06.178146+00:00",
+    "gamble_date": "2026-03-08",
+    "gamble_count": 28,
+    "inventory": {
+      "global": {
+        "gamble_pass": 100,
+        "rob_insurance": 84
+      }
+    }
+  },
+  "1341172850928914492": {
+    "balance": 59025,
+    "streak": 1,
+    "last_daily": null,
+    "last_work": "2026-03-07T19:39:12.621114+00:00",
+    "gamble_date": "2026-03-07",
+    "gamble_count": 2
+  },
+  "678780419063414795": {
+    "balance": 107,
+    "streak": 1,
+    "last_daily": "2026-03-08T15:33:06.022410+00:00",
+    "last_work": "2026-03-08T15:32:56.920496+00:00",
+    "gamble_date": "2026-03-08",
+    "gamble_count": 2
+  },
+  "1125525709268463646": {
+    "balance": 39805,
+    "streak": 2,
+    "last_daily": "2026-03-09T19:04:39.725388+00:00",
+    "last_work": "2026-03-09T23:31:24.041145+00:00",
+    "gamble_date": "2026-03-07",
+    "gamble_count": 18,
+    "inventory": {
+      "global": {
+        "double_work_stored": 0,
+        "rob_insurance_stored": 0,
+        "rob_insurance": 98,
+        "double_work_until": "2026-03-08T20:07:24.082393+00:00",
+        "fishing_rod": true,
+        "mystery_box_date": "2026-03-08"
+      }
+    },
+    "last_fish": "2026-03-09T23:31:23.244278+00:00"
+  },
+  "813881130372825098": {
+    "balance": 11532,
+    "streak": 1,
+    "last_daily": "2026-03-09T01:05:28.446076+00:00",
+    "last_work": "2026-03-09T01:05:31.897192+00:00"
+  },
+  "926348941639950346": {
+    "balance": 297220,
+    "streak": 2,
+    "last_daily": "2026-03-09T19:58:59.684315+00:00",
+    "last_work": "2026-03-09T19:58:58.278573+00:00",
+    "inventory": {
+      "global": {
+        "rob_insurance_stored": 2,
+        "double_work_stored": 1,
+        "mystery_box_date": "2026-03-09",
+        "fishing_rod": true
+      }
+    },
+    "last_fish": "2026-03-09T20:04:08.263513+00:00"
+  },
+  "1265022997916291163": {
+    "balance": 1248,
+    "streak": 1,
+    "last_daily": "2026-03-09T20:01:12.122979+00:00"
+  },
+  "1253854469029101570": {
+    "balance": 18242,
+    "streak": 2,
+    "last_daily": "2026-03-10T00:25:00.792143+00:00",
+    "inventory": {
+      "global": {
+        "mystery_box_date": "2026-03-09"
+      }
+    },
+    "last_work": "2026-03-10T00:24:54.197570+00:00",
+    "gamble_date": "2026-03-08",
+    "gamble_count": 4
+  }
+}
